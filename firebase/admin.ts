@@ -11,7 +11,6 @@ function initFirebaseAdmin() {
       credential: cert({
         projectId: process.env.FIREBASE_PROJECT_ID,
         clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        // Replace newlines in the private key
         privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
       }),
     });
@@ -21,6 +20,13 @@ function initFirebaseAdmin() {
     auth: getAuth(),
     db: getFirestore(),
   };
+}
+
+// Utility to clean undefined values
+export function cleanUndefined(obj: Record<string, any>) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([_, v]) => v !== undefined)
+  );
 }
 
 export const { auth, db } = initFirebaseAdmin();
