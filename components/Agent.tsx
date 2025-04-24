@@ -167,13 +167,13 @@ const Agent = ({
         <div className="card-border">
           <div className="card-content">
             <Image
-              src="/user-avatar.png"
+              src="/user-avatar.webp"
               alt="profile-image"
               width={539}
               height={539}
               className="rounded-full object-cover size-[120px]"
             />
-            <h3>{userName}</h3>
+            <h3>{userName.charAt(0).toUpperCase() + userName.slice(1)}</h3>
           </div>
         </div>
       </div>

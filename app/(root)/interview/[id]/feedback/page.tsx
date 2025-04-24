@@ -23,96 +23,100 @@ const Feedback = async ({ params }: RouteParams) => {
   });
 
   return (
-    <section className="section-feedback">
-      <div className="flex flex-row justify-center">
-        <h1 className="text-4xl font-semibold">
-          Feedback on the Interview -{" "}
-          <span className="capitalize">{interview.role}</span> Interview
-        </h1>
-      </div>
+    <section className="max-w-4xl mx-auto mt-10 bg-white/60 dark:bg-zinc-900/70 backdrop-blur-lg rounded-2xl p-8 shadow-md space-y-10 border border-zinc-300 dark:border-zinc-700">
+  {/* Header */}
+  <div className="text-center">
+    <h1 className="text-3xl md:text-4xl font-bold text-zinc-800 dark:text-white">
+      Feedback on the Interview -{" "}
+      <span className="capitalize text-primary-500">{interview.role}</span>
+    </h1>
+  </div>
 
-      <div className="flex flex-row justify-center ">
-        <div className="flex flex-row gap-5">
-          {/* Overall Impression */}
-          <div className="flex flex-row gap-2 items-center">
-            <Image src="/star.svg" width={22} height={22} alt="star" />
-            <p>
-              Overall Impression:{" "}
-              <span className="text-primary-200 font-bold">
-                {feedback?.totalScore}
-              </span>
-              /100
-            </p>
-          </div>
+  {/* Metadata */}
+  <div className="flex flex-wrap justify-center gap-6 text-sm text-zinc-600 dark:text-zinc-300">
+    <div className="flex items-center gap-2">
+      <Image src="/star.svg" width={20} height={20} alt="star" />
+      <p>
+        Overall Impression:{" "}
+        <span className="text-primary-500 font-semibold">
+          {feedback?.totalScore ?? "---"}
+        </span>
+        /100
+      </p>
+    </div>
+    <div className="flex items-center gap-2">
+      <Image src="/calendar.svg" width={20} height={20} alt="calendar" />
+      <p>
+        {feedback?.createdAt
+          ? dayjs(feedback.createdAt).format("MMM D, YYYY h:mm A")
+          : "Date not available"}
+      </p>
+    </div>
+  </div>
 
-          {/* Date */}
-          <div className="flex flex-row gap-2">
-            <Image src="/calendar.svg" width={22} height={22} alt="calendar" />
-            <p>
-              {feedback?.createdAt
-                ? dayjs(feedback.createdAt).format("MMM D, YYYY h:mm A")
-                : "N/A"}
-            </p>
-          </div>
+  <hr className="border-zinc-300 dark:border-zinc-700" />
+
+  {/* Final Assessment */}
+  <p className="text-zinc-700 dark:text-zinc-100 leading-relaxed">
+    {feedback?.finalAssessment}
+  </p>
+
+  {/* Breakdown */}
+  <div className="space-y-6">
+    <h2 className="text-xl font-semibold text-zinc-800 dark:text-white">
+      Breakdown of the Interview
+    </h2>
+
+    <div className="grid gap-4">
+      {feedback?.categoryScores?.map((category, index) => (
+        <div
+          key={index}
+          className="bg-zinc-100 dark:bg-zinc-800 rounded-xl p-4 border border-zinc-200 dark:border-zinc-700"
+        >
+          <p className="font-semibold text-zinc-800 dark:text-white mb-1">
+            {index + 1}. {category.name} ({category.score}/100)
+          </p>
+          <p className="text-zinc-600 dark:text-zinc-300">{category.comment}</p>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
 
-      <hr />
+  {/* Strengths */}
+  <div>
+    <h3 className="text-lg font-semibold text-green-600">Strengths</h3>
+    <ul className="list-disc list-inside mt-2 text-zinc-700 dark:text-zinc-200">
+      {feedback?.strengths?.map((strength, index) => (
+        <li key={index}>{strength}</li>
+      ))}
+    </ul>
+  </div>
 
-      <p>{feedback?.finalAssessment}</p>
+  {/* Areas for Improvement */}
+  <div>
+    <h3 className="text-lg font-semibold text-rose-600">Areas for Improvement</h3>
+    <ul className="list-disc list-inside mt-2 text-zinc-700 dark:text-zinc-200">
+      {feedback?.areasForImprovement?.map((area, index) => (
+        <li key={index}>{area}</li>
+      ))}
+    </ul>
+  </div>
 
-      {/* Interview Breakdown */}
-      <div className="flex flex-col gap-4">
-        <h2>Breakdown of the Interview:</h2>
-        {feedback?.categoryScores?.map((category, index) => (
-          <div key={index}>
-            <p className="font-bold">
-              {index + 1}. {category.name} ({category.score}/100)
-            </p>
-            <p>{category.comment}</p>
-          </div>
-        ))}
-      </div>
+  {/* Buttons */}
+  <div className="flex flex-col sm:flex-row gap-4 mt-6">
+    <Link href="/" className="w-full">
+      <Button className="w-full bg-zinc-200 hover:bg-zinc-300 text-zinc-800 dark:bg-zinc-700 dark:text-white dark:hover:bg-zinc-600">
+        Back to Dashboard
+      </Button>
+    </Link>
+    <Link href={`/interview/${id}`} className="w-full">
+      <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
+        Retake Interview
+      </Button>
+    </Link>
+  </div>
+</section>
 
-      <div className="flex flex-col gap-3">
-        <h3>Strengths</h3>
-        <ul>
-          {feedback?.strengths?.map((strength, index) => (
-            <li key={index}>{strength}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="flex flex-col gap-3">
-        <h3>Areas for Improvement</h3>
-        <ul>
-          {feedback?.areasForImprovement?.map((area, index) => (
-            <li key={index}>{area}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="buttons">
-        <Button className="btn-secondary flex-1">
-          <Link href="/" className="flex w-full justify-center">
-            <p className="text-sm font-semibold text-primary-200 text-center">
-              Back to dashboard
-            </p>
-          </Link>
-        </Button>
-
-        <Button className="btn-primary flex-1">
-          <Link
-            href={`/interview/${id}`}
-            className="flex w-full justify-center"
-          >
-            <p className="text-sm font-semibold text-black text-center">
-              Retake Interview
-            </p>
-          </Link>
-        </Button>
-      </div>
-    </section>
   );
 };
 

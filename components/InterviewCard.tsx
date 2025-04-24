@@ -38,71 +38,73 @@ const InterviewCard = async ({
   ).format("MMM D, YYYY");
 
   return (
-    <div className="card-border w-[360px] max-sm:w-full min-h-96">
-      <div className="card-interview">
-        <div>
-          {/* Type Badge */}
-          <div
-            className={cn(
-              "absolute top-0 right-0 w-fit px-4 py-2 rounded-bl-lg",
-              badgeColor
-            )}
-          >
-            <p className="badge-text ">{normalizedType}</p>
-          </div>
+    <div className="w-full sm:max-w-sm bg-white/60 dark:bg-zinc-800/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex flex-col justify-between min-h-[400px] transition-all border border-zinc-200 dark:border-zinc-700">
+      {/* Top Section */}
+      <div className="relative">
+        {/* Badge */}
+        <div
+          className={cn(
+            "absolute top-0 right-0 px-3 py-1 rounded-bl-xl text-xs font-semibold text-white tracking-wide",
+            {
+              Behavioral: "bg-blue-500",
+              Mixed: "bg-purple-500",
+              Technical: "bg-emerald-600",
+            }[normalizedType] || "bg-gray-600"
+          )}
+        >
+          {normalizedType}
+        </div>
 
-          {/* Cover Image */}
+        {/* Avatar */}
+        <div className="flex justify-center mb-4 mt-2">
           <Image
             src={getRandomInterviewCover()}
-            alt="cover-image"
-            width={90}
-            height={90}
-            className="rounded-full object-fit size-[90px]"
+            alt="cover"
+            width={80}
+            height={80}
+            className="rounded-full shadow-md"
           />
+        </div>
 
-          {/* Interview Role */}
-          <h3 className="mt-5 capitalize">{role} Interview</h3>
+        {/* Role */}
+        <h3 className="text-center text-xl font-bold capitalize text-zinc-800 dark:text-white">
+          {role} Interview
+        </h3>
 
-          {/* Date & Score */}
-          <div className="flex flex-row gap-5 mt-3">
-            <div className="flex flex-row gap-2">
-              <Image
-                src="/calendar.svg"
-                width={22}
-                height={22}
-                alt="calendar"
-              />
-              <p>{formattedDate}</p>
-            </div>
-
-            <div className="flex flex-row gap-2 items-center">
-              <Image src="/star.svg" width={22} height={22} alt="star" />
-              <p>{feedback?.totalScore || "---"}/100</p>
-            </div>
+        {/* Metadata */}
+        <div className="flex justify-center gap-6 mt-4 text-sm text-zinc-600 dark:text-zinc-300">
+          <div className="flex items-center gap-2">
+            <Image src="/calendar.svg" alt="calendar" width={20} height={20} />
+            <span>{formattedDate}</span>
           </div>
-
-          {/* Feedback or Placeholder Text */}
-          <p className="line-clamp-2 mt-5">
-            {feedback?.finalAssessment ||
-              "You haven't taken this interview yet. Take it now to improve your skills."}
-          </p>
+          <div className="flex items-center gap-2">
+            <Image src="/star.svg" alt="star" width={20} height={20} />
+            <span>{feedback?.totalScore || "---"}/100</span>
+          </div>
         </div>
 
-        <div className="flex flex-row justify-between">
-          <DisplayTechIcons techStack={techstack} />
+        {/* Feedback or Prompt */}
+        <p className="mt-5 text-zinc-700 dark:text-zinc-200 text-sm line-clamp-3 text-center">
+          {feedback?.finalAssessment ||
+            "You haven't taken this interview yet. Start now and see how you perform."}
+        </p>
+      </div>
 
-          <Button className="btn-primary">
-            <Link
-              href={
-                feedback
-                  ? `/interview/${interviewId}/feedback`
-                  : `/interview/${interviewId}`
-              }
-            >
-              {feedback ? "Check Feedback" : "View Interview"}
-            </Link>
-          </Button>
-        </div>
+      {/* Bottom Section */}
+      <div className="flex flex-col gap-4 mt-6">
+        <DisplayTechIcons techStack={techstack} />
+
+        <Button className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-xl w-full transition">
+          <Link
+            href={
+              feedback
+                ? `/interview/${interviewId}/feedback`
+                : `/interview/${interviewId}`
+            }
+          >
+            {feedback ? "Check Feedback" : "Start Interview"}
+          </Link>
+        </Button>
       </div>
     </div>
   );

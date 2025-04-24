@@ -28,6 +28,8 @@ export async function setSessionCookie(idToken: string) {
 export async function signUp(params: SignUpParams) {
   const { uid, name, email } = params;
 
+  console.log(uid, name, email)
+
   try {
     // check if user exists in db
     const userRecord = await db.collection("users").doc(uid).get();
@@ -79,10 +81,6 @@ export async function signIn(params: SignInParams) {
       };
 
     await setSessionCookie(idToken);
-    return {
-      success: true,
-      message: "Signed in successfully",
-    };
   } catch (error: any) {
     console.log("");
 

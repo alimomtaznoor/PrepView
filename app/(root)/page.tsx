@@ -9,6 +9,7 @@ import {
   getInterviewsByUserId,
   getLatestInterviews,
 } from "@/lib/actions/general.action";
+import RobotDisplay from "@/components/ui/Robot";
 
 async function Home() {
   const user = await getCurrentUser();
@@ -23,31 +24,42 @@ async function Home() {
 
   return (
     <>
-      <section className="card-cta">
-        <div className="flex flex-col gap-6 max-w-lg">
-          <h2>Get Interview-Ready with AI-Powered Practice & Feedback</h2>
-          <p className="text-lg">
-            Practice real interview questions & get instant feedback
+      <section className="rounded-3xl shadow-2xl p-24 md:flex md:items-center md:justify-between gap-10 transition-all"
+        style={{
+          backgroundImage: "url(/bg.webp)",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+
+        
+      }}>
+        <div className="flex flex-col gap-4 max-w-xl">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-800 dark:text-white leading-tight">
+            Get Ready for Interviews with Smart Practice
+          </h2>
+          <p className="text-md md:text-lg text-zinc-600 dark:text-zinc-300">
+            Answer real questions, sharpen your skills, and get instant
+            feedback.
           </p>
 
-          <Button asChild className="btn-primary max-sm:w-full">
-            <Link href="/interview">Start an Interview</Link>
+          <Button
+            asChild
+            className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-xl w-fit max-sm:w-full transition-all"
+          >
+            <Link href="/interview">Begin Interview Session</Link>
           </Button>
         </div>
 
-        <Image
-          src="/robot.png"
-          alt="robo-dude"
-          width={400}
-          height={400}
-          className="max-sm:hidden"
-        />
+        <div className="max-w-lg mx-auto hidden sm:block !h-[25rem]">
+          <RobotDisplay />
+        </div>
       </section>
 
-      <section className="flex flex-col gap-6 mt-8">
-        <h2>Your Interviews</h2>
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold text-zinc-800 dark:text-white mb-4">
+          Your Past Interviews
+        </h2>
 
-        <div className="interviews-section">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {hasPastInterviews ? (
             userInterviews?.map((interview) => (
               <InterviewCard
@@ -61,15 +73,19 @@ async function Home() {
               />
             ))
           ) : (
-            <p>You haven&apos;t taken any interviews yet</p>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              You haven&apos;t taken any interviews yet
+            </p>
           )}
         </div>
       </section>
 
-      <section className="flex flex-col gap-6 mt-8">
-        <h2>Take Interviews</h2>
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold text-zinc-800 dark:text-white mb-4">
+          Upcoming Interviews
+        </h2>
 
-        <div className="interviews-section">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {hasUpcomingInterviews ? (
             allInterview?.map((interview) => (
               <InterviewCard
@@ -83,7 +99,9 @@ async function Home() {
               />
             ))
           ) : (
-            <p>There are no interviews available</p>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              There are no interviews available
+            </p>
           )}
         </div>
       </section>
