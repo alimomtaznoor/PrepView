@@ -1,16 +1,17 @@
+import { Toaster } from "sonner";
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Mona_Sans } from "next/font/google";
+
 import "./globals.css";
 
-const quicksand = Quicksand({
-  variable: "--font-quicksand",
+const monaSans = Mona_Sans({
+  variable: "--font-mona-sans",
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
-  title: "PrevView",
-  description: "Let AI prepare you for the interviews",
+  title: "PrepWise",
+  description: "An AI-powered platform for preparing for mock interviews",
 };
 
 export default function RootLayout({
@@ -20,10 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${quicksand.variable}  antialiased pattern`}
-      >
+      <body className={`${monaSans.className} antialiased pattern`}>
         {children}
+
+        <Toaster />
       </body>
     </html>
   );
