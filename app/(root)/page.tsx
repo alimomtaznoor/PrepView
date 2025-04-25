@@ -24,14 +24,15 @@ async function Home() {
 
   return (
     <>
-      <section className="rounded-3xl shadow-2xl p-24 md:flex md:items-center md:justify-between gap-10 transition-all"
+      <section
+        className="rounded-3xl shadow-2xl p-24 md:flex md:items-center md:justify-between gap-10 transition-all"
         style={{
-          backgroundImage: "url(/bg.webp)",
+          backgroundImage: "url(/bg.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-
         
-      }}>
+        }}
+      >
         <div className="flex flex-col gap-4 max-w-xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-800 dark:text-white leading-tight">
             Get Ready for Interviews with Smart Practice
@@ -43,7 +44,7 @@ async function Home() {
 
           <Button
             asChild
-            className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-xl w-fit max-sm:w-full transition-all"
+            className="bg-[#7d75d4] hover:bg-[#6660ae] text-white py-3 px-6 rounded-xl w-fit max-sm:w-full transition-all"
           >
             <Link href="/interview">Begin Interview Session</Link>
           </Button>

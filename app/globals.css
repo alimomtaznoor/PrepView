@@ -139,7 +139,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-[#e0dede]  text-foreground;
+    @apply bg-[#ffffff]  text-foreground;
   }
   p {
     @apply text-light-100;
@@ -303,7 +303,7 @@
 }
 
 @utility pattern {
-  @apply bg-[url('/pattern.png')] bg-top bg-no-repeat;
+  @apply bg-[url('/photo.jpg')] bg-contain bg-top backdrop-blur-[1px];
 }
 
 @utility blue-gradient-dark {

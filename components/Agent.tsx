@@ -151,16 +151,19 @@ const Agent = ({
         {/* AI Interviewer Card */}
         <div className="card-interviewer">
           <div className="avatar">
-            <Image
+            {/* <Image
               src="/ai-avatar.png"
               alt="profile-image"
               width={65}
               height={54}
               className="object-cover"
-            />
+            /> */}
+            <h2 className="text-[#000000b4] uppercase text-xl">
+              Preper<span className="text-[#8F87F1] font-extrabold">s</span>
+            </h2>
             {isSpeaking && <span className="animate-speak" />}
           </div>
-          <h3>AI Interviewer</h3>
+          <h3>Prepers Interviewer</h3>
         </div>
 
         {/* User Profile Card */}
@@ -206,7 +209,7 @@ const Agent = ({
 
             <span className="relative">
               {callStatus === "INACTIVE" || callStatus === "FINISHED"
-                ? "Call"
+                ? "Start"
                 : ". . ."}
             </span>
           </button>
