@@ -87,10 +87,10 @@ export function Navbar() {
         </Link>
         <Link
           className="text-[#eaeaea] font-bold"
-          href="/cominginterviews"
+          href="/other-interviews"
           onClick={() => setIsMenuOpen(false)}
         >
-          Upcoming Interviews
+          Explore Interviews
         </Link>
 
         <button
