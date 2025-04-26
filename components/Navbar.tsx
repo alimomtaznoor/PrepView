@@ -39,13 +39,13 @@ export function Navbar() {
       <div className="hidden md:flex items-center gap-8">
         <div className="flex gap-4">
           <Link
-            className="text-[#eaeaea] font-bold text-xs lg:text-lg"
+            className="text-[#eaeaea] font-bold text-xs lg:text-sm"
             href="/previnterviews"
           >
             Previous Interviews
           </Link>
           <Link
-            className="text-[#eaeaea] font-bold text-xs lg:text-lg"
+            className="text-[#eaeaea] font-bold text-xs lg:text-sm"
             href="/cominginterviews"
           >
             Upcoming Interviews
