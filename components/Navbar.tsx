@@ -31,15 +31,15 @@ export function Navbar() {
         <div className="flex gap-4">
           <Link
             className="text-[#eaeaea] font-bold text-xs lg:text-sm"
-            href="/previnterviews"
+            href="/my-interviews"
           >
-            Previous Interviews
+            My Interviews
           </Link>
           <Link
             className="text-[#eaeaea] font-bold text-xs lg:text-sm"
-            href="/cominginterviews"
+            href="/other-interviews"
           >
-            Upcoming Interviews
+            Explore Interviews
           </Link>
         </div>
 
