@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { vapi } from "@/lib/vapi.sdk";
 import { interviewer } from "@/constants";
 import { createFeedback } from "@/lib/actions/general.action";
+import Logo from "./ui/Logo";
 
 enum CallStatus {
   INACTIVE = "INACTIVE",
@@ -158,18 +159,7 @@ const Agent = ({
               height={54}
               className="object-cover"
             /> */}
-            <h2 className="text-[#535252] uppercase text-xl">
-              Preper
-              <span
-                className="text-[#ffffff] font-extrabold"
-                style={{
-                  textShadow:
-                    "-1px 0 #8F87F1, 0 1px #8F87F1, 1px 0 #8F87F1, 0 -1px #8F87F1",
-                }}
-              >
-                s
-              </span>
-            </h2>
+            <Logo color="#8F87F1" spanColor="#eaeaea" borderColor="#8F87F1" size="26px" />
             {isSpeaking && <span className="animate-speak" />}
           </div>
           <h3>Prepers Interviewer</h3>
