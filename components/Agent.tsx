@@ -158,8 +158,17 @@ const Agent = ({
               height={54}
               className="object-cover"
             /> */}
-            <h2 className="text-[#000000b4] uppercase text-xl">
-              Preper<span className="text-[#8F87F1] font-extrabold">s</span>
+            <h2 className="text-[#535252] uppercase text-xl">
+              Preper
+              <span
+                className="text-[#ffffff] font-extrabold"
+                style={{
+                  textShadow:
+                    "-1px 0 #8F87F1, 0 1px #8F87F1, 1px 0 #8F87F1, 0 -1px #8F87F1",
+                }}
+              >
+                s
+              </span>
             </h2>
             {isSpeaking && <span className="animate-speak" />}
           </div>
