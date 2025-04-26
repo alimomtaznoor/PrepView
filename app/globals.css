@@ -332,3 +332,40 @@
     transform: translateY(0);
   }
 }
+
+.label-check {
+  display: none;
+}
+
+.hamburger-label {
+  width: 40px;
+  height: 40px;
+  display: block;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+}
+
+.hamburger-label div {
+  background-color: #fff;
+}
+
+#label-check:checked + .hamburger-label .line1 {
+  transform: rotate(35deg) scaleX(0.55) translate(20px, -3px);
+  border-radius: 50px 50px 50px 0;
+}
+
+#label-check:checked + .hamburger-label .line3 {
+  transform: rotate(-35deg) scaleX(0.55) translate(20px, 3px);
+  border-radius: 0 50px 50px 50px;
+}
+
+#label-check:checked + .hamburger-label .line2 {
+  width: 24px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+#label-check:checked + .hamburger-label {
+  transform: rotate(90deg);
+}
