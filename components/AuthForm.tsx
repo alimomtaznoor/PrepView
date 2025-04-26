@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 
 import { signIn, signUp } from "@/lib/actions/auth.action";
 import FormField from "./FormField";
+import Logo from "./ui/Logo";
 
 const authFormSchema = (type: FormType) => {
   return z.object({
@@ -102,10 +103,12 @@ const AuthForm = ({ type }: { type: FormType }) => {
       <div className="flex flex-col gap-6 card py-14 px-10">
         <div className="flex flex-row gap-2 justify-center">
           {/* <Image src="/logo.svg" alt="logo" height={32} width={38} /> */}
-          <h2 className="text-white/50 uppercase">Preper<span className="text-primary-500">s</span></h2>
+          <Logo color="#2C2C2C" spanColor="#fff" borderColor="#8F87F1" />
         </div>
 
-        <h3 className="text-white/80 text-lg">Practice job interviews with us</h3>
+        <h3 className="text-[#5e5e5e] text-lg">
+          Practice job interviews with us
+        </h3>
 
         <Form {...form}>
           <form
@@ -134,6 +137,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
               control={form.control}
               name="password"
               label="Password"
+    
               placeholder="Enter your password"
               type="password"
             />
@@ -144,7 +148,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           </form>
         </Form>
 
-        <p className="text-center">
+        <p className="text-center text-[#2c2c2cc3]">
           {isSignIn ? "No account yet?" : "Have an account already?"}
           <Link
             href={!isSignIn ? "/sign-in" : "/sign-up"}

@@ -190,22 +190,22 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl min-h-full;
+    @apply bg-[#eaeaea] rounded-2xl min-h-full;
   }
 
   .form {
     @apply w-full;
 
     .label {
-      @apply !text-light-100 !font-normal;
+      @apply text-black/50 !font-normal;
     }
 
     .input {
-      @apply !bg-dark-200 !rounded-full !min-h-12 !px-5 placeholder:!text-light-100;
+      @apply !bg-white !rounded-full !min-h-12 !px-5 placeholder:!text-black/50;
     }
 
     .btn {
-      @apply !w-full !bg-primary-200 !text-dark-100 hover:!bg-primary-200/80 !rounded-full !min-h-10 !font-bold !px-5 cursor-pointer;
+      @apply !w-full !bg-[#8F87F1] !text-[#fff] hover:!bg-[#615ba3] !rounded-full !min-h-10 !font-bold !px-5 cursor-pointer;
     }
   }
 

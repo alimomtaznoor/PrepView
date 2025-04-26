@@ -7,13 +7,13 @@ import Footer from "@/components/Footer";
 const Layout = async ({ children }: { children: ReactNode }) => {
   const isUserAuthenticated = await isAuthenticated();
 
-  if (!isUserAuthenticated) {
-    redirect("/sign-in");
-  }
+  // if (!isUserAuthenticated) {
+  //   redirect("/sign-in");
+  // }
 
   return (
     <div className="root-layout">
-      <Navbar /> {/* <-- this is a client component */}
+      <Navbar isUserAuthenticated={isUserAuthenticated} /> {/* <-- this is a client component */}
       {children}
       <Footer />
     </div>
