@@ -369,3 +369,89 @@
 #label-check:checked + .hamburger-label {
   transform: rotate(90deg);
 }
+
+
+/* From Uiverse.io by WhiteNervosa */ 
+.nav-btn{
+  font-size: 16px;
+  color: #e1e1e1;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.nav-btn:focus,
+.nav-btn:hover {
+  color: #fff;
+}
+
+.nav-btn:focus:after,
+.nav-btn:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.nav-btn:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+
+/* From Uiverse.io by yaasiinaxmed */ 
+.sign-in-btn {
+  font-family: inherit;
+  display: inline-block;
+  width: 5rem; 
+  height: 2.5em;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1;
+  color: #eaeaea;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  position: relative;
+}
+
+.sign-in-btn::before {
+  position: absolute;
+  content: "";
+  background: #eaeaea;
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.sign-in-btn:hover {
+  color: #8F87F1;
+}
+
+.sign-in-btn:before {
+  top: 100%;
+  left: 100%;
+  transition: 0.3s all;
+}
+
+.sign-in-btn:hover::before {
+  top: -30px;
+  left: -30px;
+}

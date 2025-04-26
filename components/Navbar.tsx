@@ -33,18 +33,18 @@ export function Navbar() {
             className="text-[#eaeaea] font-bold text-xs lg:text-sm"
             href="/my-interviews"
           >
-            My Interviews
+            <Btn text="My Interviews" />
           </Link>
           <Link
             className="text-[#eaeaea] font-bold text-xs lg:text-sm"
             href="/other-interviews"
           >
-            Explore Interviews
+            <Btn text="Explore Interviews" />
           </Link>
         </div>
 
         <button
-          className="text-[#8F87F1] bg-[#eaeaea] px-2 py-1 text-xs font-bold rounded-sm cursor-pointer"
+          className="sign-in-btn"
           onClick={() => {
             setIsMenuOpen(false);
             handleSignOut();
@@ -76,33 +76,45 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-20 right-4 bg-[#202020f9] shadow-lg rounded-md flex flex-col gap-6 py-36 px-32 z-50 md:hidden">
+          <Link
+            className="text-[#eaeaea] font-bold"
+            href="/my-interviews"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <Btn text="My Interviews" />
+          </Link>
+          <Link
+            className="text-[#eaeaea] font-bold"
+            href="/other-interviews"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Explore Interviews
+          </Link>
 
-      <div className="absolute top-20 right-4 bg-[#202020f9] shadow-lg rounded-md flex flex-col gap-6 py-36 px-32 z-50 md:hidden">
-        <Link
-          className="text-[#eaeaea] font-bold"
-          href="/my-interviews"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          My Interviews
-        </Link>
-        <Link
-          className="text-[#eaeaea] font-bold"
-          href="/other-interviews"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Explore Interviews
-        </Link>
-
-        <button
-          className="text-[#8F87F1] bg-[#eaeaea] px-2 py-1 text-xs font-bold rounded-sm cursor-pointer"
-          onClick={() => {
-            setIsMenuOpen(false);
-            handleSignOut();
-          }}
-        >
-          Sign Out
-        </button>
-      </div>
+          <button
+            className="sign-in-btn"
+            onClick={() => {
+              setIsMenuOpen(false);
+              handleSignOut();
+            }}
+          >
+            Sign Out
+          </button>
+        </div>
+      )}
     </nav>
   );
 }
+
+
+function Btn({text}:{text:string}) {
+  return (
+    <button className="nav-btn">
+      {text}
+    </button>
+  )
+}
+
+

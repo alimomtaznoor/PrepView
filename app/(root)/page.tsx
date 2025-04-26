@@ -29,7 +29,7 @@ async function Home() {
               asChild
               className="bg-[#7d75d4] hover:bg-[#6660ae] text-white py-3 px-6 rounded-xl w-fit max-sm:w-full transition-all"
             >
-              <Link href="/interview">Begin Interview Session</Link>
+              <Link href="/interview">Get an Interview</Link>
             </Button>
           ) :
             <Button
