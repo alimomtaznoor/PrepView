@@ -80,10 +80,10 @@ export function Navbar() {
       <div className="absolute top-20 right-4 bg-[#202020f9] shadow-lg rounded-md flex flex-col gap-6 py-36 px-32 z-50 md:hidden">
         <Link
           className="text-[#eaeaea] font-bold"
-          href="/previnterviews"
+          href="/my-interviews"
           onClick={() => setIsMenuOpen(false)}
         >
-          Previous Interviews
+          My Interviews
         </Link>
         <Link
           className="text-[#eaeaea] font-bold"
