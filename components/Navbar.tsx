@@ -28,7 +28,7 @@ export function Navbar() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-20">
-        <div className="flex gap-4">
+        {/* <div className="flex gap-4">
           <Link
             className="text-[#eaeaea] font-bold text-xs lg:text-sm"
             href="/my-interviews"
@@ -41,7 +41,7 @@ export function Navbar() {
           >
             <Btn text="Explore Interviews" />
           </Link>
-        </div>
+        </div> */}
 
         <button
           className="sign-in-btn"
