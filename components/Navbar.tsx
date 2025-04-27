@@ -27,7 +27,7 @@ export function Navbar() {
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-20">
         <div className="flex gap-4">
           <Link
             className="text-[#eaeaea] font-bold text-xs lg:text-sm"
@@ -66,11 +66,11 @@ export function Navbar() {
           />
           <label
             htmlFor="label-check"
-            className="hamburger-label relative block cursor-pointer w-[40px] h-[40px]"
+            className="hamburger-label relative block cursor-pointer w-[30px] h-[30px]"
           >
-            <div className="line1 absolute w-full h-[4px] bg-white top-0 left-0 transition-all"></div>
-            <div className="line2 absolute w-full h-[4px] bg-white top-[12px] left-0 transition-all"></div>
-            <div className="line3 absolute w-full h-[4px] bg-white top-[24px] left-0 transition-all"></div>
+            <div className="line1 absolute w-full h-[2px] bg-white top-0 left-0 transition-all"></div>
+            <div className="line2 absolute w-full h-[2px] bg-white top-[12px] left-0 transition-all"></div>
+            <div className="line3 absolute w-full h-[2px] bg-white top-[24px] left-0 transition-all"></div>
           </label>
         </div>
       </div>
