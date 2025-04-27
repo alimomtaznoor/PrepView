@@ -303,7 +303,7 @@
 }
 
 @utility pattern {
-  @apply bg-[url('/bg2.jpg')] bg-cover bg-top bg-no-repeat;
+  @apply bg-[url('/bground.jpg')] bg-cover bg-top bg-no-repeat;
 }
 
 @utility blue-gradient-dark {
@@ -371,7 +371,6 @@
 }
 
 
-/* From Uiverse.io by WhiteNervosa */ 
 .nav-btn{
   font-size: 16px;
   color: #e1e1e1;
@@ -412,16 +411,13 @@
 }
 
 
-/* From Uiverse.io by yaasiinaxmed */ 
 .sign-in-btn {
   font-family: inherit;
   display: inline-block;
   width: 5rem; 
   height: 2.5em;
-  line-height: 2.5em;
   overflow: hidden;
   cursor: pointer;
-  margin: 20px;
   font-size: 12px;
   font-weight: 600;
   z-index: 1;
