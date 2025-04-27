@@ -64,14 +64,14 @@ export function Navbar() {
             checked={isMenuOpen}
             onChange={() => setIsMenuOpen(!isMenuOpen)}
           />
-          <label
+          {/* <label
             htmlFor="label-check"
             className="hamburger-label relative block cursor-pointer w-[30px] h-[30px]"
           >
             <div className="line1 absolute w-full h-[2px] bg-white top-0 left-0 transition-all"></div>
             <div className="line2 absolute w-full h-[2px] bg-white top-[12px] left-0 transition-all"></div>
             <div className="line3 absolute w-full h-[2px] bg-white top-[24px] left-0 transition-all"></div>
-          </label>
+          </label> */}
         </div>
       </div>
 
