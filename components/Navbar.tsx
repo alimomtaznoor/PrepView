@@ -83,14 +83,14 @@ export function Navbar() {
             href="/my-interviews"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Btn text="My Interviews" size="13px" />
+            <Btn text="My Interviews" size="11px" />
           </Link>
           <Link
             className="text-[#eaeaea] font-bold"
             href="/other-interviews"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Btn text="Explore Interviews" size="13px"  />
+            <Btn text="Explore Interviews" size="11px"  />
           </Link>
 
           <button
