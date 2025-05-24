@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center justify-between mt-10 gap-2">
+    <div className="flex flex-col items-center  mt-10 gap-2">
       {/* <div>
         <Link href="/terms">
           <h1 className="text-sm text-[#6d6d6d]">Privacy Policy</h1>
