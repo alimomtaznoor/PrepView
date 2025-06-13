@@ -18,7 +18,7 @@ const page = async() => {
     const hasPastInterviews = userInterviews?.length! > 0;
   return (
     <section className="mt-12 h-[40vh]">
-            <h2 className="text-2xl font-semibold text-black-800 dark:text-white mb-4">
+            <h2 className="text-2xl font-semibold text-black-900 dark:text-white mb-4">
               Your Past Interviews
             </h2>
     
